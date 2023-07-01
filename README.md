@@ -14,23 +14,24 @@ Change My MAC is a Python application that allows you to change the MAC address 
 
    ```shell
    git clone https://github.com/yourusername/change-my-mac.git
+   ```
 Navigate to the project directory:
    ```shell
    cd change-my-mac
-
+   ```
 Optional: Create and activate a virtual environment:
-shell
-Copy code
-python -m venv venv
-source venv/bin/activate
+   ```shell
+   python -m venv venv
+   source venv/bin/activate
+   ```
 Install the dependencies:
-shell
-Copy code
-pip install -r requirements.txt
+   ```shell
+   pip install -r requirements.txt
+   ```
 Install spoof-mac via Homebrew (for macOS only):
-shell
-Copy code
-brew install spoof-mac
+   ```shell
+   brew install spoof-mac
+   ```
 ## Usage
 
 Run the main.py file:
