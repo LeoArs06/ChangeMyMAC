@@ -31,7 +31,7 @@ Install spoof-mac via Homebrew (for macOS only):
 shell
 Copy code
 brew install spoof-mac
-Usage
+##Usage
 
 Run the main.py file:
 shell
@@ -41,15 +41,15 @@ The "Change My MAC" graphical interface will appear.
 Enter the network interface name in the "Network Interface" field.
 To generate a random MAC address, click the "Generate Random MAC Address" button.
 To change the MAC address of the network interface to the provided one, click the "Change MAC Address" button.
-Support
+##Support
 
 If you encounter any issues or have questions, please open an issue in the issue tracker of this repository.
 
-Contributions
+##Contributions
 
 Contributions from the community are welcome! If you would like to contribute to this project, please open a pull request and describe the proposed changes.
 
-License
+##License
 
 This project is licensed under the terms of the MIT License. See the LICENSE file for more information.
 
