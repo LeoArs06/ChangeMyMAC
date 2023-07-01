@@ -1,56 +1,59 @@
 # Change My MAC
 
-Change My MAC è un'applicazione Python che consente di cambiare l'indirizzo MAC di un'interfaccia di rete su sistemi Windows, macOS e Linux.
+Change My MAC is a Python application that allows you to change the MAC address of a network interface on both Windows and macOS systems.
 
-## Requisiti
+## Requirements
 
 - Python 3.x
-- tkinter (installato di default con Python)
-- [spoof-mac](https://github.com/feross/spoofmac) (solo per macOS)
+- tkinter (included by default with Python)
+- [spoof-mac](https://github.com/feross/spoofmac) (for macOS only)
 
+## Installation
 
-## Installazione
-
-1. Clona il repository:
+1. Clone the repository:
 
    ```shell
-   git clone https://github.com/tuoutro/change-my-mac.git
-Entra nella directory del progetto:
+   git clone https://github.com/yourusername/change-my-mac.git
+Navigate to the project directory:
 shell
 Copy code
 cd change-my-mac
-Opzionale: crea e attiva un ambiente virtuale:
+Optional: Create and activate a virtual environment:
 shell
 Copy code
 python -m venv venv
 source venv/bin/activate
-Installa le dipendenze:
+Install the dependencies:
 shell
 Copy code
 pip install -r requirements.txt
-Utilizzo
+Install spoof-mac via Homebrew (for macOS only):
+shell
+Copy code
+brew install spoof-mac
+Usage
 
-Esegui il file main.py:
+Run the main.py file:
 shell
 Copy code
 python main.py
-Verrà visualizzata l'interfaccia grafica dell'applicazione "Change My MAC".
-Inserisci il nome dell'interfaccia di rete nel campo "Interfaccia di rete".
-Per generare un indirizzo MAC casuale, clicca sul pulsante "Genera indirizzo MAC casuale".
-Per cambiare l'indirizzo MAC dell'interfaccia di rete con quello fornito, clicca sul pulsante "Cambia indirizzo MAC".
-Supporto
+The "Change My MAC" graphical interface will appear.
+Enter the network interface name in the "Network Interface" field.
+To generate a random MAC address, click the "Generate Random MAC Address" button.
+To change the MAC address of the network interface to the provided one, click the "Change MAC Address" button.
+Support
 
-Se riscontri problemi o hai domande, puoi aprire una segnalazione nell'area delle issue di questo repository.
+If you encounter any issues or have questions, please open an issue in the issue tracker of this repository.
 
-Contributi
+Contributions
 
-Sono benvenuti i contributi da parte della community! Se desideri contribuire a questo progetto, apri una pull request e descrivi le modifiche proposte.
+Contributions from the community are welcome! If you would like to contribute to this project, please open a pull request and describe the proposed changes.
 
-Licenza
+License
 
-Questo progetto è concesso in licenza secondo i termini della licenza MIT. Consulta il file LICENSE per ulteriori informazioni.
+This project is licensed under the terms of the MIT License. See the LICENSE file for more information.
 
-csharp
+javascript
 Copy code
 
-Puoi utilizzare questo modello come punto di partenza per il tuo README su GitHub. Assicurati di personalizzare le sezioni come requisiti, istruzioni di installazione, utilizzo e supporto in base alle esigenze del tuo progetto.
+Please note that you need to replace `yourusername` with your actual GitHub
