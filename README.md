@@ -15,9 +15,9 @@ Change My MAC is a Python application that allows you to change the MAC address 
    ```shell
    git clone https://github.com/yourusername/change-my-mac.git
 Navigate to the project directory:
-shell
-Copy code
-cd change-my-mac
+   ```shell
+   cd change-my-mac
+
 Optional: Create and activate a virtual environment:
 shell
 Copy code
