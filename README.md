@@ -10,10 +10,10 @@ Change My MAC is a Python application that allows you to change the MAC address 
 
 ## Installation
 
-1. Clone the repository:
+Clone the repository:
 
    ```shell
-   git clone https://github.com/yourusername/change-my-mac.git
+   git clone https://github.com/LeoArs06/change-my-mac.git
    ```
 Navigate to the project directory:
    ```shell
@@ -35,9 +35,9 @@ Install spoof-mac via Homebrew (for macOS only):
 ## Usage
 
 Run the main.py file:
-shell
-Copy code
-python main.py
+```shell
+   sudo python3 main.py
+```
 The "Change My MAC" graphical interface will appear.
 Enter the network interface name in the "Network Interface" field.
 To generate a random MAC address, click the "Generate Random MAC Address" button.
@@ -53,8 +53,5 @@ Contributions from the community are welcome! If you would like to contribute to
 ## License
 
 This project is licensed under the terms of the MIT License. See the LICENSE file for more information.
-
-javascript
-Copy code
 
 Please note that you need to replace `yourusername` with your actual GitHub
