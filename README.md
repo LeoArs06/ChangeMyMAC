@@ -52,6 +52,3 @@ This project was developed by [LeoArs06](https://github.com/LeoArs06) and [Natis
 
 ## License
 
-This project is licensed under the terms of the MIT License. See the LICENSE file for more information.
-
-Please note that you need to replace `yourusername` with your actual GitHub
