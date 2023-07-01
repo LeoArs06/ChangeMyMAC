@@ -1,11 +1,13 @@
 # Change My MAC
 
-Change My MAC è un'applicazione Python che consente di cambiare l'indirizzo MAC di un'interfaccia di rete su sistemi Windows e macOS.
+Change My MAC è un'applicazione Python che consente di cambiare l'indirizzo MAC di un'interfaccia di rete su sistemi Windows, macOS e Linux.
 
 ## Requisiti
 
 - Python 3.x
 - tkinter (installato di default con Python)
+- [spoof-mac](https://github.com/feross/spoofmac) (solo per macOS)
+
 
 ## Installazione
 
