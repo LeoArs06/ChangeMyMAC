@@ -49,6 +49,3 @@ If you encounter any issues or have questions, please open an issue in the issue
 ## Contributions
 
 This project was developed by [LeoArs06](https://github.com/LeoArs06) and [Natisfaction](https://github.com/Natisfaction). Contributions from the community are welcome! If you would like to contribute to this project, please open a pull request and describe the proposed changes.
-
-## License
-
