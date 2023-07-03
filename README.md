@@ -1,6 +1,7 @@
 # Change My MAC
 
-Change My MAC is a Python application that allows you to change the MAC address of a network interface on Windows, macOS and Linux based systems, in few and really easy steps.
+Change My MAC is a Python application that allows you to change the MAC address of a network interface on macOS and Linux based systems, in few and really easy steps.
+Windows support very soon
 
 ## Credits
 
