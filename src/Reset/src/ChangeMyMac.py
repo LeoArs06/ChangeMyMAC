@@ -22,10 +22,13 @@ def change_mac_address(interface, mac_address):
     elif platform.system() == "Darwin":
         result = subprocess.run(["sudo", "spoof-mac", "set", mac_address, interface], capture_output=True, text=True)
 
-    #Windows isn't cool :)
+    #Windows needs netsh
     elif platform.system() == "Windows":
-        #Still working on...
-        output = "error"
+        subprocess.run(["netsh","interface","set","interface",interface,"admin=disable"])
+
+        mac_address = mac_address.replace(":","-")
+        #result = subprocess.run(["netsh","interface","set","interface",interface,"newmac=",mac_address])
+        subprocess.run(["netsh","interface","set","interface",interface,"admin=enable"])
     
     #Other platforms such Java or smt are not supported
     else:
@@ -46,21 +49,36 @@ def generate_mac_address():
 
 
 def get_mac_address(interface):
-    result = subprocess.run(["ifconfig", interface], capture_output=True, text=True)
-    output = result.stdout
+    if platform.system() == "Linux" or platform.system() == "Darwin":
+        result = subprocess.run(["ifconfig", interface], capture_output=True, text=True)
+        output = result.stdout
 
-    mac_isvalid = re.search(r'ether\s+([0-9A-Fa-f:]{17})', output)
+        mac_isvalid = re.search(r'ether\s+([0-9A-Fa-f:]{17})', output)
 
-    if mac_isvalid:
-        mac_actual = mac_isvalid.group(1)
-        return mac_actual
+        if mac_isvalid:
+            mac_actual = mac_isvalid.group(1)
+            return mac_actual
+    
+    elif platform.system() == "Windows":
+        for interfaces in psutil.net_if_addrs():
+        # Check if the interface name matches the desired interface
+            if interfaces == interface:
+                # Get the MAC address for the interface
+                mac_address = psutil.net_if_addrs()[interfaces][0].address
+                mac_address = mac_address.replace("-",":")
+                return mac_address
+    
     return None
 
 
 def is_valid_interface(interface):
-    result = subprocess.run(["ifconfig", interface], capture_output=True, text=True)
-    return result.returncode == 0
+    if platform.system() == "Linux" or platform.system() == "Darwin":
+        result = subprocess.run(["ifconfig", interface], capture_output=True, text=True)
+    
+    elif platform.system() == "Windows":
+        result = subprocess.run(["ipconfig", "/release", interface], capture_output=True, text=True)
 
+    return result.returncode == 0
 
 def change_mac_button_clicked():
     interface = interface_entry.get()
@@ -83,31 +101,6 @@ def generate_mac_button_clicked():
     mac_address_entry.insert(0, random_mac_address)
     update_current_mac()
 
-#Aggiunto questo \/ \/ \/
-
-def restore_default_mac_button_clicked():
-    interface = interface_entry.get()
-    try:
-        with open("mac_interface_"+interface_entry.get()+".txt","r") as file:
-            mac_address_entry.delete(0, tk.END)
-            mac_address_entry.insert(0, file.read())
-
-            file.close()
-            current_mac_value.set("[OK] Backup del MAC originale trovato!!!")
-
-    except FileNotFoundError:
-        if not interface:
-            current_mac_value.set("[ERROR] Nessuna interfaccia inserita...")
-        else:
-            current_mac_value.set("[ERROR] Nessun backup trovato per l'interfaccia "+interface)
-
-def backup_default_mac_button_clicked():
-    with open("mac_interface_"+interface_entry.get()+".txt","w") as file:
-        file.write(get_mac_address(interface_entry.get()))
-        file.close()
-
-#Aggiunto questo /\ /\ /\
-
 def update_current_mac():
     interface = interface_entry.get()
 
@@ -120,13 +113,14 @@ def update_current_mac():
     else:
         current_mac_value.set("[ERROR] Interfaccia non valida...")
 
-#Backup dell'indirizzo mac corrente
+if platform.system() == "Windows":
+    import psutil
 
 #Creazione della finestra principale
 window = tk.Tk()
 window.title("Change My Mac")
 window.geometry("400x300")
-window.iconbitmap("icon.ico")
+#window.iconbitmap("icon.ico")
 
 #Creazione dei widget
 title_label = tk.Label(window, text="Change My Mac", font=("Arial", 18, "bold"))
@@ -154,13 +148,7 @@ generate_mac_button = tk.Button(window, text=" Genera indirizzo MAC casuale", fo
 generate_mac_button.pack()
 
 change_mac_button = tk.Button(window, text="      Aggiorna indirizzo MAC      ", font=("Arial", 12), command=change_mac_button_clicked)
-change_mac_button.pack(pady=(0,10))
-
-backup_mac_button = tk.Button(window, text="         Salva indirizzo MAC        ", font=("Arial", 12), command=backup_default_mac_button_clicked)
-backup_mac_button.pack()
-
-restore_mac_button = tk.Button(window, text="      Ripristina indirizzo MAC     ", font=("Arial", 12), command=restore_default_mac_button_clicked)
-restore_mac_button.pack()
+change_mac_button.pack(pady=(10,0))
 
 current_mac_value = tk.StringVar()
 current_mac_value.set("[INFO] Indirizzo MAC attuale: Non disponibile")
