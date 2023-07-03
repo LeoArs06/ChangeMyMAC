@@ -1,28 +1,39 @@
 import subprocess
 import re
-import sys
 import random
 import tkinter as tk
-from tkinter import messagebox
+import platform
 
+#This program should be able to work on macOS, Windows and Linux
 
 def change_mac_address(interface, mac_address):
     if not interface:
         current_mac_value.set("[ERROR] Specificare un'interfaccia di rete...")
         return
     
-    #netsh interface set interface "AdapterName" admin=enable
+    #Linux platform doesn't need any other external tool
+    if platform.system() == "Linux":
+        subprocess.run(["sudo","ifconfig",interface,"down"])
+        
+        result = subprocess.run(["sudo", "ifconfig", interface, "hw", "ether", mac_address], capture_output=True, text=True)
+        subprocess.run(["sudo","ifconfig",interface,"up"])
 
+    #macOS platform needs spoof-mac
+    elif platform.system() == "Darwin":
+        result = subprocess.run(["sudo", "spoof-mac", "set", mac_address, interface], capture_output=True, text=True)
 
-    result1 = subprocess.run(["netsh", "interface", "set", "interface", interface, "admin=disable"], capture_output=True, text=True)
-    result2 = subprocess.run(["netsh", "interface", "set", "interface", interface, "newmac=", mac_address], capture_output=True, text=True)
-    result3 = subprocess.run(["netsh", "interface", "set", "interface", interface, "admin=enable"], capture_output=True, text=True)
+    #Windows isn't cool :)
+    elif platform.system() == "Windows":
+        #Still working on...
+        output = "error"
     
-    output1 = result1.stdout
-    output2 = result2.stdout
-    output3 = result3.stdout
+    #Other platforms such Java or smt are not supported
+    else:
+        output = "error"
+    
+    output = result.stdout
 
-    if "error" in output1.lower() or "error" in output2.lower() or "error" in output3.lower():
+    if "error" in output.lower():
         current_mac_value.set("[ERROR] Errore durante il cambio dell'indirizzo MAC...")
     else:
         current_mac_value.set("[OK] Indirizzo MAC aggiornato con successo!!!")
@@ -35,7 +46,7 @@ def generate_mac_address():
 
 
 def get_mac_address(interface):
-    result = subprocess.run(["ipconfig /all", ], capture_output=True, text=True)
+    result = subprocess.run(["ifconfig", interface], capture_output=True, text=True)
     output = result.stdout
 
     mac_isvalid = re.search(r'ether\s+([0-9A-Fa-f:]{17})', output)
@@ -47,7 +58,7 @@ def get_mac_address(interface):
 
 
 def is_valid_interface(interface):
-    result = subprocess.run(["ipconfig /all"], capture_output=True, text=True)
+    result = subprocess.run(["ifconfig", interface], capture_output=True, text=True)
     return result.returncode == 0
 
 
