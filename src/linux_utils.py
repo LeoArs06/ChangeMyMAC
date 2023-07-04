@@ -5,7 +5,7 @@ import random
 
 def change_mac_address(interface, mac_address):
     if not interface:
-        messagebox.showerror("Error", "Specificare un'interfaccia di rete.")
+        messagebox.showerror("Error", "No interfaces provided")
         return
 
     subprocess.run(["sudo","ifconfig",interface,"down"])
@@ -15,12 +15,18 @@ def change_mac_address(interface, mac_address):
     output = result.stdout
 
     if "error" in output.lower():
-        messagebox.showerror("Error", "Si è verificato un errore durante il cambio dell'indirizzo MAC.")
+        messagebox.showerror("Error", "Can't update current MAC Address")
+        return 1
     else:
-        messagebox.showinfo("Success", "L'indirizzo MAC è stato cambiato correttamente.")
+        messagebox.showinfo("Success", "MAC Address updated succesfully")
+    
+    return 0
 
 def generate_mac_address():
     random_mac = [random.randint(0x00, 0xff) for _ in range(6)]
+    #Primo byte deve essere pari (no multicast)
+    random_mac[0] = random_mac[0] - (random_mac[0] % 2)
+
     random_mac_address = ":".join([f"{x:02x}" for x in random_mac])
     return random_mac_address
 

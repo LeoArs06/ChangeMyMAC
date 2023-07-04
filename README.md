@@ -2,8 +2,6 @@
 
 Change My MAC is a Python application that allows you to change the MAC address of a network interface on macOS and Linux based systems, in few and really easy steps.
 
-Windows support'll be added very soon.
-
 ## Credits
 
 This software uses the [spoof-mac](https://github.com/feross/spoofmac) package for the macOS version, developed by [feross](https://github.com/feross). Original spoof-mac code can be found in his linked GitHub repository.
@@ -22,13 +20,17 @@ This software uses the [spoof-mac](https://github.com/feross/spoofmac) package f
 
 ## Installation
 
-Install spoof-mac via Homebrew (for macOS only):
+Install spoof-mac via Homebrew (macOS only):
    ```shell
    brew install spoof-mac
    ```
 Install ifconfig if not installed (Linux only):
    ```shell
    sudo apt install net-tools
+   ```
+Install the psutil module (Windows only)
+   ```shell
+   pip3 install psutil
    ```
 Install tkinker if not installed:
    ```shell
@@ -49,15 +51,16 @@ Launch the ChangeMyMac.py file (with administrator or sudo access):
    ```
 
 ## Usage
+
 After executing the program, the "Change My MAC" graphical interface will appear.
 Enter the network interface name in the "Network Interface" field, and then you're ready to perform some operations:
 
-- **generate a random MAC address**, click the "Generate Random MAC Address" button.
-- **change the MAC address** of the network interface to the provided one, click the "Change MAC Address" button.
+- **generate a random MAC address**, click the "Random MAC Address" button.
+- **change the MAC address** of the network interface to the provided one, click the "Update MAC Address" button.
 
 ## Contributions
 
-This project was developed by me [LeoArs06](https://github.com/LeoArs06) and [Natisfaction](https://github.com/Natisfaction), a cool dude. 
+This project was developed by me [LeoArs06](https://github.com/LeoArs06) and [Natisfaction](https://github.com/Natisfaction), a cool friend of mine. 
 
 ## Licence
 

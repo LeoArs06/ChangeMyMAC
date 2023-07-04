@@ -29,7 +29,7 @@ def create_gui():
     interface_frame = tk.Frame(window)
     interface_frame.pack()
 
-    interface_label = tk.Label(interface_frame, text="Interfaccia di rete:", font=("Arial", 12))
+    interface_label = tk.Label(interface_frame, text="Network interface:", font=("Arial", 12))
     interface_label.pack(side=tk.LEFT, padx=10)
 
     interface_entry = tk.Entry(interface_frame, font=("Arial", 12))
@@ -38,20 +38,20 @@ def create_gui():
     mac_address_frame = tk.Frame(window)
     mac_address_frame.pack(pady=10)
 
-    mac_address_label = tk.Label(mac_address_frame, text="Indirizzo MAC:     ", font=("Arial", 12))
+    mac_address_label = tk.Label(mac_address_frame, text="MAC Address:     ", font=("Arial", 12))
     mac_address_label.pack(side=tk.LEFT, padx=10)
 
     mac_address_entry = tk.Entry(mac_address_frame, font=("Arial", 12))
     mac_address_entry.pack(side=tk.LEFT)
 
-    generate_mac_button = tk.Button(window, text="Genera indirizzo MAC casuale", font=("Arial", 12), command=lambda: generate_mac_button_clicked(interface_entry, mac_address_entry, current_mac_value))
+    generate_mac_button = tk.Button(window, text="      Random MAC Address     ", font=("Arial", 12), command=lambda: generate_mac_button_clicked(interface_entry, mac_address_entry, current_mac_value))
     generate_mac_button.pack(pady=10)
 
-    change_mac_button = tk.Button(window, text="       Cambia indirizzo MAC      ", font=("Arial", 12), command=lambda: change_mac_button_clicked(interface_entry, mac_address_entry))
+    change_mac_button = tk.Button(window, text="       Update MAC Address      ", font=("Arial", 12), command=lambda: change_mac_button_clicked(interface_entry, mac_address_entry, current_mac_value))
     change_mac_button.pack()
 
     current_mac_value = tk.StringVar()
-    current_mac_value.set("Indirizzo MAC attuale: Non disponibile")
+    current_mac_value.set("[INFO] No information provided")
     current_mac_entry = tk.Label(window, textvariable=current_mac_value, font=("Arial", 12))
     current_mac_entry.pack(pady=10)
 
@@ -61,18 +61,21 @@ def create_gui():
     #loop della gui
     window.mainloop()
 
-def change_mac_button_clicked(interface_entry, mac_address_entry):
+def change_mac_button_clicked(interface_entry, mac_address_entry, current_mac_value):
     interface = interface_entry.get()
     mac_address = mac_address_entry.get()
 
     if not is_valid_interface(interface):
-        messagebox.showerror("Error", "Interfaccia di rete non valida.")
+        messagebox.showerror("Error", "Bad interface")
         return
 
     if re.match(r'^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$', mac_address):
-        change_mac_address(interface, mac_address)
+        if change_mac_address(interface, mac_address) == 0:
+            current_mac_value.set("[OK] MAC Address updated successfully")
+        else:
+            current_mac_value.set("[ERROR] Can't update current MAC Address")
     else:
-        messagebox.showerror("Error", "L'indirizzo MAC fornito non è valido.")
+        messagebox.showerror("Error", "Bad MAC Address")
 
 
 def generate_mac_button_clicked(interface_entry, mac_address_entry, current_mac_value):
@@ -89,8 +92,8 @@ def update_current_mac(interface_entry, current_mac_value):
     if is_valid_interface(interface):
         mac_address = get_mac_address(interface)
         if mac_address:
-            current_mac_value.set("Indirizzo MAC attuale: " + mac_address)
+            current_mac_value.set("[INFO] Actual MAC Address: " + mac_address)
         else:
-            current_mac_value.set("Indirizzo MAC attuale: Non disponibile")
+            current_mac_value.set("[WARN] Actual MAC Address: not found")
     else:
-        current_mac_value.set("Interfaccia non valida")
+        current_mac_value.set("[ERROR] Invalid interface")
