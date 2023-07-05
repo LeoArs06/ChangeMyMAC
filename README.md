@@ -20,18 +20,28 @@ This software uses the [spoof-mac](https://github.com/feross/spoofmac) package f
 
 ## Installation
 
+### MacOS only
+
 Install spoof-mac via Homebrew (macOS only):
    ```shell
    brew install spoof-mac
    ```
+
+### Linux only
+
 Install ifconfig if not installed (Linux only):
    ```shell
    sudo apt install net-tools
    ```
+
+### Windows only
 Install the psutil module (Windows only)
    ```shell
    pip3 install psutil
    ```
+
+### General steps
+
 Install tkinker if not installed:
    ```shell
    pip3 install tkinker
@@ -41,13 +51,15 @@ Clone the repository:
    ```shell
    git clone https://github.com/LeoArs06/change-my-mac.git
    ```
+
 Navigate to the project directory:
    ```shell
-   cd change-my-mac
+   cd src
    ```
+
 Launch the ChangeMyMac.py file (with administrator or sudo access):
    ```shell
-   python3 -u ChangeMyMac.py
+   python3 -u main.py
    ```
 
 ## Usage
