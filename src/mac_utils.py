@@ -2,12 +2,21 @@ import subprocess
 import re
 from tkinter import messagebox
 import random
+import netifaces
+
+def get_adapter_list():
+    interfaces = netifaces.interfaces()
+    return interfaces
 
 def change_mac_address(interface, mac_address):
     if not interface:
         messagebox.showerror("Error", "No interfaces provided")
         return
-
+    
+    if not interface:
+        messagebox.showerror("Error", "Interface not found in dictionary")
+        return
+    
     result = subprocess.run(["sudo", "spoof-mac", "set", mac_address, interface], capture_output=True, text=True)
     output = result.stdout
 
