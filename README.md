@@ -47,6 +47,11 @@ Install tkinker if not installed:
    pip3 install tkinker
    ```
 
+Install netifaces:
+   ```shell
+   pip3 install netifaces
+   ```
+
 Clone the repository:
    ```shell
    git clone https://github.com/LeoArs06/change-my-mac.git
