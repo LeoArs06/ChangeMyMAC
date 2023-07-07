@@ -37,14 +37,14 @@ Install ifconfig if not installed (Linux only):
 ### Windows only
 Install the psutil module (Windows only)
    ```shell
-   pip3 install psutil
+   pip install psutil
    ```
 
 ### General steps
 
-Install tkinker if not installed:
+Install tkinter if not installed:
    ```shell
-   pip3 install tkinker
+   pip3 install tkinter
    ```
 
 Install netifaces:
