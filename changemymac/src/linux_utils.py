@@ -1,7 +1,13 @@
 import subprocess
 import re
 from tkinter import messagebox
+
 import random
+import netifaces
+
+def get_adapter_list():
+    interfaces = netifaces.interfaces()
+    return interfaces
 
 def change_mac_address(interface, mac_address):
     if not interface:

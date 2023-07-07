@@ -6,20 +6,12 @@ import re
 import platform
 
 if platform.system() == "Windows":
-    import subprocess
-    output = subprocess.check_output(["powershell", "Get-NetAdapter | Select-Object -ExpandProperty Name"]).decode("utf-8")
-
-    interfaces = re.findall(r"(\w+)", output)
     from win_utils import *
 
 elif platform.system() == "Darwin":
-    import netifaces
-    interfaces = netifaces.interfaces()
     from mac_utils import *
 
 elif platform.system() == "Linux":
-    import netifaces
-    interfaces = netifaces.interfaces()
     from linux_utils import *
 
 else:
@@ -42,7 +34,7 @@ def create_gui():
     interface_combobox.pack(side=tk.LEFT)
 
     # Set the values for the dropdown menu
-    interface_combobox['values'] = interfaces
+    interface_combobox['values'] = get_adapter_list()
     mac_address_frame = tk.Frame(window, width=25)
     mac_address_frame.pack(pady=10)
     mac_address_label = tk.Label(mac_address_frame, text="MAC Address:      ", font=("Arial", 12))
@@ -65,6 +57,7 @@ def create_gui():
     interface_combobox.bind("<<ComboboxSelected>>", lambda e: update_current_mac(interface_combobox, current_mac_value))
      # loop della gui
     window.mainloop()
+
 def change_mac_button_clicked(interface_combobox, mac_address_entry, current_mac_value):
     interface = interface_combobox.get()
     mac_address = mac_address_entry.get()
@@ -78,12 +71,14 @@ def change_mac_button_clicked(interface_combobox, mac_address_entry, current_mac
             current_mac_value.set("[ERROR] Can't update current MAC Address")
     else:
         messagebox.showerror("Error", "Bad MAC Address")
+
 def generate_mac_button_clicked(interface_combobox, mac_address_entry, current_mac_value):
     interface = interface_combobox.get()
     random_mac_address = generate_mac_address()
     mac_address_entry.delete(0, tk.END)
     mac_address_entry.insert(0, random_mac_address)
     update_current_mac(interface_combobox, current_mac_value)
+
 def update_current_mac(interface_combobox, current_mac_value):
     interface = interface_combobox.get()
     if is_valid_interface(interface):

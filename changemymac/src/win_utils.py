@@ -4,6 +4,11 @@ from tkinter import messagebox
 import random
 import psutil
 
+def get_adapter_list():
+    output = subprocess.check_output(["powershell", "Get-NetAdapter | Select-Object -ExpandProperty Name"]).decode("utf-8")
+    interfaces = re.findall(r"(\w+)", output)
+    return interfaces
+
 def change_mac_address(interface, mac_address):
     if not interface:
         messagebox.showerror("Error", "No interfaces provided")
