@@ -26,7 +26,6 @@ def change_mac_address(interface, mac_address):
     
     return 0
 
-
 def generate_mac_address():
     random_mac = [random.randint(0x00, 0xff) for _ in range(6)]
     #Primo byte deve essere pari (no multicast)
@@ -34,7 +33,6 @@ def generate_mac_address():
 
     random_mac_address = ":".join([f"{x:02x}" for x in random_mac])
     return random_mac_address
-
 
 def get_mac_address(interface):
     for interfaces in psutil.net_if_addrs():
@@ -46,7 +44,6 @@ def get_mac_address(interface):
             return mac_address
 
     return None
-
 
 def is_valid_interface(interface):
     result = subprocess.run(["powershell", "-Command", "Get-NetAdapter", interface], capture_output=True)
