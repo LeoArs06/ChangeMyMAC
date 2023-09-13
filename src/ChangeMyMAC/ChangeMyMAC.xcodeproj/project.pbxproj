@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		AACDE3572AB1EB2300085BC2 /* ChangeMyMACApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDE3562AB1EB2300085BC2 /* ChangeMyMACApp.swift */; };
-		AACDE3592AB1EB2300085BC2 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDE3582AB1EB2300085BC2 /* ContentView.swift */; };
 		AACDE35B2AB1EB2300085BC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AACDE35A2AB1EB2300085BC2 /* Assets.xcassets */; };
 		AACDE35E2AB1EB2300085BC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AACDE35D2AB1EB2300085BC2 /* Preview Assets.xcassets */; };
 		AACDE3692AB1EB2300085BC2 /* ChangeMyMACTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDE3682AB1EB2300085BC2 /* ChangeMyMACTests.swift */; };
@@ -36,7 +35,6 @@
 /* Begin PBXFileReference section */
 		AACDE3532AB1EB2300085BC2 /* ChangeMyMAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeMyMAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACDE3562AB1EB2300085BC2 /* ChangeMyMACApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMyMACApp.swift; sourceTree = "<group>"; };
-		AACDE3582AB1EB2300085BC2 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AACDE35A2AB1EB2300085BC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AACDE35D2AB1EB2300085BC2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AACDE35F2AB1EB2300085BC2 /* ChangeMyMAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeMyMAC.entitlements; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				AACDE3562AB1EB2300085BC2 /* ChangeMyMACApp.swift */,
-				AACDE3582AB1EB2300085BC2 /* ContentView.swift */,
 				AACDE35A2AB1EB2300085BC2 /* Assets.xcassets */,
 				AACDE35F2AB1EB2300085BC2 /* ChangeMyMAC.entitlements */,
 				AACDE35C2AB1EB2300085BC2 /* Preview Content */,
@@ -259,7 +256,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AACDE3592AB1EB2300085BC2 /* ContentView.swift in Sources */,
 				AACDE3572AB1EB2300085BC2 /* ChangeMyMACApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
