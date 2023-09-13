@@ -1,13 +1,13 @@
 //
-//  Change_My_MACUITestsLaunchTests.swift
-//  Change My MACUITests
+//  ChangeMyMACUITestsLaunchTests.swift
+//  ChangeMyMACUITests
 //
 //  Created by Christian Leone on 13/09/23.
 //
 
 import XCTest
 
-final class Change_My_MACUITestsLaunchTests: XCTestCase {
+final class ChangeMyMACUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
         true
