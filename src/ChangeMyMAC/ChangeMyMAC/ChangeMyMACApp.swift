@@ -25,13 +25,27 @@ struct AppMenu: View {
     var body: some View {
         VStack {
             // Title
-            Text("Change My MAC")
-                .padding(.bottom)
-                .font(.title)
-                .fontWeight(.bold)
+            HStack(alignment: .firstTextBaseline) {
+                Text("Change My MAC")
+                    .padding(.bottom)
+                    .font(.title)
+                    .fontWeight(.bold)
+                
+                Spacer()
+                
+                Button {
+                    
+                } label: {
+                    Text("⚙️")
+                        .padding(.bottom)
+                        .font(.title)
+                        .fontWeight(.bold)
+                    
+                }.buttonStyle(.borderless)
+            }
             
             HStack {
-                Text("Network Interface: ")
+                Text("Network Interface:  ")
                 
                 Menu {
                     // This snipped simply creates buttons with the interface name
@@ -61,15 +75,17 @@ struct AppMenu: View {
                 .padding()
             
             HStack {
-                Button(action: randomize) {
-                    Text("Random MAC")
-                        .padding()
-                }
+                Button {
+                    randomize()
+                } label: {
+                    Text("Random MAC").frame(maxWidth: .infinity)
+                }.buttonStyle(.borderedProminent)
                 
-                Button(action: update_mac) {
-                    Text("Update MAC")
-                        .padding()
-                }
+                Button {
+                    update_mac()
+                } label: {
+                    Text("Update MAC").frame(maxWidth: .infinity)
+                }.buttonStyle(.borderedProminent)
             }
         }
         .padding()
