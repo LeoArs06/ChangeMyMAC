@@ -33,6 +33,9 @@ struct AppMenu: View {
                 
                 Spacer()
                 
+                ZStack {
+                    
+                }
                 Button {
                     
                 } label: {
