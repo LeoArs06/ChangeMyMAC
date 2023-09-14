@@ -1,8 +1,4 @@
 import SwiftUI
-import ServiceManagement
-import SystemConfiguration
-
-import Darwin
 import Foundation
 
 @main
@@ -25,12 +21,14 @@ struct AppMenu: View {
     private var interfaces: [String] {
         getInterfaces()
     }
-
+    
     var body: some View {
         VStack {
-            // Title (I'll format the string better later)...
+            // Title
             Text("Change My MAC")
                 .padding(.bottom)
+                .font(.title)
+                .fontWeight(.bold)
             
             HStack {
                 Text("Network Interface: ")
@@ -55,7 +53,8 @@ struct AppMenu: View {
                 
                 // MAC Address field
                 TextField("New MAC Address here...", text: $mac_add)
-                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .textFieldStyle(.roundedBorder)
+                
             }
             
             Divider()
@@ -76,10 +75,6 @@ struct AppMenu: View {
         .padding()
     }
     
-    func printa(cfArray: CFArray) {
-        print(cfArray)
-    }
-
     func randomize() {
         let mac_nibble: [Character] = Array("0123456789abcdef")
         var newmac: String = ""
@@ -133,8 +128,116 @@ struct AppMenu: View {
         
         return sortedNames
     }
-
+    
+    func isMACvalid() -> Bool{
+        // Check if the MAC address is valid
+        let macRegex = "^([0-9A-Fa-f]{2}[:-]){5}([0-9A-Fa-f]{2})$"
+        
+        let macPredicate = NSPredicate(format: "SELF MATCHES %@", macRegex)
+        return macPredicate.evaluate(with: mac_add)
+    }
+    
     func update_mac() {
-        // Update the MAC (maybe authenticate???)
+        // Check if the MAC address is valid and the interface is selected, if not display an error
+        if sInterface.isEmpty || !isMACvalid() {
+            let alert = NSAlert()
+            
+            alert.messageText = "Invalid prompts"
+            alert.informativeText = "Please type in the requested data correctly"
+            alert.addButton(withTitle: "OK")
+            
+            if let iconImage = NSImage(named: "Error") {
+                alert.icon = iconImage
+            }
+            
+            let _ = alert.runModal()
+            return
+        }
+        
+        // Prompt the user for the password
+        let alert = NSAlert()
+        
+        alert.messageText = "Root password required"
+        alert.informativeText = "Please enter your root password:"
+        alert.addButton(withTitle: "OK")
+        alert.addButton(withTitle: "Cancel")
+        
+        let passwordTextField = NSSecureTextField(frame: NSRect(x: 0, y: 0, width: 200, height: 24))
+        alert.accessoryView = passwordTextField
+        
+        if let iconImage = NSImage(named: NSImage.lockLockedTemplateName) {
+            alert.icon = iconImage
+        }
+        
+        let response = alert.runModal()
+        
+        if response == .alertFirstButtonReturn {
+            
+            // If the OK button is clicked, the password gets written to the pipe
+            if let password = passwordTextField.stringValue.data(using: .utf8) {
+                
+                // Check if the password provided is correct
+                let process = Process()
+                process.launchPath = "/usr/bin/sudo"
+                process.arguments = ["-S", "/usr/bin/true"]
+                
+                let pipe = Pipe()
+                process.standardInput = pipe
+                let fileHandle = pipe.fileHandleForWriting
+                
+                fileHandle.write(password)
+                fileHandle.closeFile()
+                
+                process.launch()
+                process.waitUntilExit()
+                
+                if process.terminationStatus == 0 {
+                    
+                    // If the password is correct, update the MAC address
+                    let updateProcess = Process()
+                    
+                    updateProcess.launchPath = "/usr/bin/sudo"
+                    updateProcess.arguments = ["-S", "sh", "-c", "sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z && ifconfig \(sInterface) ether \(mac_add)"]
+                    
+                    let updatePipe = Pipe()
+                    updateProcess.standardInput = updatePipe
+                    let updateFileHandle = updatePipe.fileHandleForWriting
+                    
+                    updateFileHandle.write(password)
+                    updateFileHandle.closeFile()
+                    
+                    updateProcess.launch()
+                    updateProcess.waitUntilExit()
+                    
+                    // If the password is correct, display the success alert
+                    let success = NSAlert()
+                    
+                    success.messageText = "Success"
+                    success.informativeText = "Successfully updated your MAC Address!"
+                    success.addButton(withTitle: "OK")
+                    
+                    if let iconImage = NSImage(named: "Success") {
+                        success.icon = iconImage
+                    }
+                    
+                    let _ = success.runModal()
+                    
+                } else {
+                    
+                    // If the passowrd is incorrect, display an error alert
+                    let errorAlert = NSAlert()
+                    
+                    errorAlert.messageText = "Incorrect password"
+                    errorAlert.informativeText = "Please enter the correct root password."
+                    errorAlert.addButton(withTitle: "OK")
+                    
+                    if let iconImage = NSImage(named: "Error") {
+                        errorAlert.icon = iconImage
+                    }
+                    
+                    let _ = errorAlert.runModal()
+                }
+            }
+        }
     }
 }

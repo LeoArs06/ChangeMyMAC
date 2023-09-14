@@ -10,27 +10,7 @@
 		AACDE3572AB1EB2300085BC2 /* ChangeMyMACApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDE3562AB1EB2300085BC2 /* ChangeMyMACApp.swift */; };
 		AACDE35B2AB1EB2300085BC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AACDE35A2AB1EB2300085BC2 /* Assets.xcassets */; };
 		AACDE35E2AB1EB2300085BC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AACDE35D2AB1EB2300085BC2 /* Preview Assets.xcassets */; };
-		AACDE3692AB1EB2300085BC2 /* ChangeMyMACTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDE3682AB1EB2300085BC2 /* ChangeMyMACTests.swift */; };
-		AACDE3732AB1EB2300085BC2 /* ChangeMyMACUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDE3722AB1EB2300085BC2 /* ChangeMyMACUITests.swift */; };
-		AACDE3752AB1EB2300085BC2 /* ChangeMyMACUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDE3742AB1EB2300085BC2 /* ChangeMyMACUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		AACDE3652AB1EB2300085BC2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AACDE34B2AB1EB2300085BC2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AACDE3522AB1EB2300085BC2;
-			remoteInfo = ChangeMyMAC;
-		};
-		AACDE36F2AB1EB2300085BC2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = AACDE34B2AB1EB2300085BC2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = AACDE3522AB1EB2300085BC2;
-			remoteInfo = ChangeMyMAC;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		AACDE3532AB1EB2300085BC2 /* ChangeMyMAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeMyMAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,29 +18,10 @@
 		AACDE35A2AB1EB2300085BC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AACDE35D2AB1EB2300085BC2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AACDE35F2AB1EB2300085BC2 /* ChangeMyMAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeMyMAC.entitlements; sourceTree = "<group>"; };
-		AACDE3642AB1EB2300085BC2 /* ChangeMyMACTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChangeMyMACTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AACDE3682AB1EB2300085BC2 /* ChangeMyMACTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMyMACTests.swift; sourceTree = "<group>"; };
-		AACDE36E2AB1EB2300085BC2 /* ChangeMyMACUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChangeMyMACUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AACDE3722AB1EB2300085BC2 /* ChangeMyMACUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMyMACUITests.swift; sourceTree = "<group>"; };
-		AACDE3742AB1EB2300085BC2 /* ChangeMyMACUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMyMACUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		AACDE3502AB1EB2300085BC2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AACDE3612AB1EB2300085BC2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AACDE36B2AB1EB2300085BC2 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -74,8 +35,6 @@
 			isa = PBXGroup;
 			children = (
 				AACDE3552AB1EB2300085BC2 /* ChangeMyMAC */,
-				AACDE3672AB1EB2300085BC2 /* ChangeMyMACTests */,
-				AACDE3712AB1EB2300085BC2 /* ChangeMyMACUITests */,
 				AACDE3542AB1EB2300085BC2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -84,8 +43,6 @@
 			isa = PBXGroup;
 			children = (
 				AACDE3532AB1EB2300085BC2 /* ChangeMyMAC.app */,
-				AACDE3642AB1EB2300085BC2 /* ChangeMyMACTests.xctest */,
-				AACDE36E2AB1EB2300085BC2 /* ChangeMyMACUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -109,23 +66,6 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
-		AACDE3672AB1EB2300085BC2 /* ChangeMyMACTests */ = {
-			isa = PBXGroup;
-			children = (
-				AACDE3682AB1EB2300085BC2 /* ChangeMyMACTests.swift */,
-			);
-			path = ChangeMyMACTests;
-			sourceTree = "<group>";
-		};
-		AACDE3712AB1EB2300085BC2 /* ChangeMyMACUITests */ = {
-			isa = PBXGroup;
-			children = (
-				AACDE3722AB1EB2300085BC2 /* ChangeMyMACUITests.swift */,
-				AACDE3742AB1EB2300085BC2 /* ChangeMyMACUITestsLaunchTests.swift */,
-			);
-			path = ChangeMyMACUITests;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -146,42 +86,6 @@
 			productReference = AACDE3532AB1EB2300085BC2 /* ChangeMyMAC.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AACDE3632AB1EB2300085BC2 /* ChangeMyMACTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AACDE37B2AB1EB2400085BC2 /* Build configuration list for PBXNativeTarget "ChangeMyMACTests" */;
-			buildPhases = (
-				AACDE3602AB1EB2300085BC2 /* Sources */,
-				AACDE3612AB1EB2300085BC2 /* Frameworks */,
-				AACDE3622AB1EB2300085BC2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AACDE3662AB1EB2300085BC2 /* PBXTargetDependency */,
-			);
-			name = ChangeMyMACTests;
-			productName = ChangeMyMACTests;
-			productReference = AACDE3642AB1EB2300085BC2 /* ChangeMyMACTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		AACDE36D2AB1EB2300085BC2 /* ChangeMyMACUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = AACDE37E2AB1EB2400085BC2 /* Build configuration list for PBXNativeTarget "ChangeMyMACUITests" */;
-			buildPhases = (
-				AACDE36A2AB1EB2300085BC2 /* Sources */,
-				AACDE36B2AB1EB2300085BC2 /* Frameworks */,
-				AACDE36C2AB1EB2300085BC2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				AACDE3702AB1EB2300085BC2 /* PBXTargetDependency */,
-			);
-			name = ChangeMyMACUITests;
-			productName = ChangeMyMACUITests;
-			productReference = AACDE36E2AB1EB2300085BC2 /* ChangeMyMACUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -194,14 +98,6 @@
 				TargetAttributes = {
 					AACDE3522AB1EB2300085BC2 = {
 						CreatedOnToolsVersion = 14.3.1;
-					};
-					AACDE3632AB1EB2300085BC2 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = AACDE3522AB1EB2300085BC2;
-					};
-					AACDE36D2AB1EB2300085BC2 = {
-						CreatedOnToolsVersion = 14.3.1;
-						TestTargetID = AACDE3522AB1EB2300085BC2;
 					};
 				};
 			};
@@ -219,8 +115,6 @@
 			projectRoot = "";
 			targets = (
 				AACDE3522AB1EB2300085BC2 /* ChangeMyMAC */,
-				AACDE3632AB1EB2300085BC2 /* ChangeMyMACTests */,
-				AACDE36D2AB1EB2300085BC2 /* ChangeMyMACUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -235,20 +129,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AACDE3622AB1EB2300085BC2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AACDE36C2AB1EB2300085BC2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -260,37 +140,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AACDE3602AB1EB2300085BC2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AACDE3692AB1EB2300085BC2 /* ChangeMyMACTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		AACDE36A2AB1EB2300085BC2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AACDE3752AB1EB2300085BC2 /* ChangeMyMACUITestsLaunchTests.swift in Sources */,
-				AACDE3732AB1EB2300085BC2 /* ChangeMyMACUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		AACDE3662AB1EB2300085BC2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AACDE3522AB1EB2300085BC2 /* ChangeMyMAC */;
-			targetProxy = AACDE3652AB1EB2300085BC2 /* PBXContainerItemProxy */;
-		};
-		AACDE3702AB1EB2300085BC2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = AACDE3522AB1EB2300085BC2 /* ChangeMyMAC */;
-			targetProxy = AACDE36F2AB1EB2300085BC2 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		AACDE3762AB1EB2300085BC2 /* Debug */ = {
@@ -343,7 +193,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -397,7 +247,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -418,12 +268,14 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ChangeMyMAC/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.natisfaction.ChangeMyMAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -443,84 +295,18 @@
 				DEVELOPMENT_ASSET_PATHS = "\"ChangeMyMAC/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSUIElement = YES;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.natisfaction.ChangeMyMAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-			};
-			name = Release;
-		};
-		AACDE37C2AB1EB2400085BC2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.natisfaction.ChangeMyMACTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChangeMyMAC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChangeMyMAC";
-			};
-			name = Debug;
-		};
-		AACDE37D2AB1EB2400085BC2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.3;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.natisfaction.ChangeMyMACTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ChangeMyMAC.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ChangeMyMAC";
-			};
-			name = Release;
-		};
-		AACDE37F2AB1EB2400085BC2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.natisfaction.ChangeMyMACUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = ChangeMyMAC;
-			};
-			name = Debug;
-		};
-		AACDE3802AB1EB2400085BC2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.natisfaction.ChangeMyMACUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = ChangeMyMAC;
 			};
 			name = Release;
 		};
@@ -541,24 +327,6 @@
 			buildConfigurations = (
 				AACDE3792AB1EB2400085BC2 /* Debug */,
 				AACDE37A2AB1EB2400085BC2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AACDE37B2AB1EB2400085BC2 /* Build configuration list for PBXNativeTarget "ChangeMyMACTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AACDE37C2AB1EB2400085BC2 /* Debug */,
-				AACDE37D2AB1EB2400085BC2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		AACDE37E2AB1EB2400085BC2 /* Build configuration list for PBXNativeTarget "ChangeMyMACUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				AACDE37F2AB1EB2400085BC2 /* Debug */,
-				AACDE3802AB1EB2400085BC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
