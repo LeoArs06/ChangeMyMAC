@@ -79,6 +79,7 @@ Enter the network interface name in the "Network Interface" field, and then you'
 We decided to develop also the binaries, to make the app more independent.
 
 ### Requirements
+Those requirements are valid **ONLY** for the binaries. If your OS cannot run those binaries, you can use the Python version.
 -   macOS: Ventura or higher
 
 ### Support
