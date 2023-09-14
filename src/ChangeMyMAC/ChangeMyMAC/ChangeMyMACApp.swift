@@ -79,7 +79,7 @@ struct AppMenu: View {
                     randomize()
                 } label: {
                     Text("Random MAC").frame(maxWidth: .infinity)
-                }.buttonStyle(.borderedProminent)
+                }
                 
                 Button {
                     update_mac()
