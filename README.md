@@ -1,6 +1,6 @@
 # Change My MAC
 
-## macOS
+## macOS
 This readme refers to the macOS program. Change branch to see other supported OSes
 
 ## Requirements
@@ -14,7 +14,7 @@ Grab the binary from the releases section, and download the .app file.
 ## Usage
 After executing the program, ChangeMyMAC will create a tray icon. Click it to access the main menu.
 
-![Interface]()
+![Interface](https://github.com/LeoArs06/ChangeMyMAC/blob/macOS/src/README/ChangeMyMAC.png)
 
 From here you just have to select the interface you want to change the MAC, and then type in a VALID MAC address.
 You have two buttons:
