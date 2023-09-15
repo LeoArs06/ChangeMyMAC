@@ -1,5 +1,6 @@
 import SwiftUI
 import Foundation
+import ServiceManagement
 
 @main
 struct ChangeMyMAC: App {
@@ -16,6 +17,7 @@ struct AppMenu: View {
     // MAC Address and selecter interface
     @State private var mac_add: String = ""
     @State private var sInterface: String = ""
+    @State private var About = false
     
     // Network Interfaces
     private var interfaces: [String] {
@@ -33,11 +35,18 @@ struct AppMenu: View {
                 
                 Spacer()
                 
-                ZStack {
+                Menu {
+                    Button {
+                        NSApplication.shared.terminate(nil)
+                    } label: {
+                        Text("Exit")
+                    }
                     
-                }
-                Button {
-                    
+                    Button {
+                        About = true
+                    } label: {
+                        Text("About")
+                    }
                 } label: {
                     Text("⚙️")
                         .padding(.bottom)
@@ -91,7 +100,9 @@ struct AppMenu: View {
                 }.buttonStyle(.borderedProminent)
             }
         }
-        .padding()
+        .padding().sheet(isPresented: $About) {
+            AboutView(isPresented: $About)
+        }
     }
     
     func randomize() {
@@ -258,5 +269,48 @@ struct AppMenu: View {
                 }
             }
         }
+    }
+}
+
+struct AboutView: View {
+    @Binding var isPresented: Bool
+    @State private var version: String = "1.1"
+    
+    var body: some View {
+        VStack {
+            Text("About...")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.all)
+            
+            Text("Copyright (c) 2023 Natisfaction, LeoArs06")
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Text("ChangeMyMAC version \(version)")
+                .padding(.bottom)
+                .padding(.horizontal)
+                .padding(.top)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Text("Developed by")
+                .font(.body)
+                .fontWeight(.bold)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.horizontal)
+            
+            HStack {
+                Link("Natisfaction", destination: URL(string: "https://github.com/Natisfaction")!)
+                Text(" and ")
+                Link("LeoArs06", destination: URL(string: "https://github.com/LeoArs06")!)
+            }.padding(.horizontal)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Button {
+                isPresented = false
+            } label: {
+                Text("Close")
+            }.buttonStyle(.borderedProminent)
+                .padding(.all)
+        }.padding(.all)
     }
 }

@@ -9,14 +9,12 @@
 /* Begin PBXBuildFile section */
 		AACDE3572AB1EB2300085BC2 /* ChangeMyMACApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACDE3562AB1EB2300085BC2 /* ChangeMyMACApp.swift */; };
 		AACDE35B2AB1EB2300085BC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AACDE35A2AB1EB2300085BC2 /* Assets.xcassets */; };
-		AACDE35E2AB1EB2300085BC2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AACDE35D2AB1EB2300085BC2 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AACDE3532AB1EB2300085BC2 /* ChangeMyMAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeMyMAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AA1505DB2AB491A30076534B /* ChangeMyMAC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ChangeMyMAC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AACDE3562AB1EB2300085BC2 /* ChangeMyMACApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangeMyMACApp.swift; sourceTree = "<group>"; };
 		AACDE35A2AB1EB2300085BC2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		AACDE35D2AB1EB2300085BC2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AACDE35F2AB1EB2300085BC2 /* ChangeMyMAC.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ChangeMyMAC.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -35,16 +33,8 @@
 			isa = PBXGroup;
 			children = (
 				AACDE3552AB1EB2300085BC2 /* ChangeMyMAC */,
-				AACDE3542AB1EB2300085BC2 /* Products */,
+				AA1505DB2AB491A30076534B /* ChangeMyMAC.app */,
 			);
-			sourceTree = "<group>";
-		};
-		AACDE3542AB1EB2300085BC2 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				AACDE3532AB1EB2300085BC2 /* ChangeMyMAC.app */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		AACDE3552AB1EB2300085BC2 /* ChangeMyMAC */ = {
@@ -53,17 +43,8 @@
 				AACDE3562AB1EB2300085BC2 /* ChangeMyMACApp.swift */,
 				AACDE35A2AB1EB2300085BC2 /* Assets.xcassets */,
 				AACDE35F2AB1EB2300085BC2 /* ChangeMyMAC.entitlements */,
-				AACDE35C2AB1EB2300085BC2 /* Preview Content */,
 			);
 			path = ChangeMyMAC;
-			sourceTree = "<group>";
-		};
-		AACDE35C2AB1EB2300085BC2 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				AACDE35D2AB1EB2300085BC2 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,7 +64,7 @@
 			);
 			name = ChangeMyMAC;
 			productName = ChangeMyMAC;
-			productReference = AACDE3532AB1EB2300085BC2 /* ChangeMyMAC.app */;
+			productReference = AA1505DB2AB491A30076534B /* ChangeMyMAC.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +91,7 @@
 				Base,
 			);
 			mainGroup = AACDE34A2AB1EB2300085BC2;
-			productRefGroup = AACDE3542AB1EB2300085BC2 /* Products */;
+			productRefGroup = AACDE34A2AB1EB2300085BC2;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -124,7 +105,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AACDE35E2AB1EB2300085BC2 /* Preview Assets.xcassets in Resources */,
 				AACDE35B2AB1EB2300085BC2 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,10 +242,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ChangeMyMAC/ChangeMyMAC.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChangeMyMAC/Preview Content\"";
+				DEVELOPMENT_TEAM = 7YF68K8RV5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -275,7 +257,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.natisfaction.ChangeMyMAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -289,10 +271,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = ChangeMyMAC/ChangeMyMAC.entitlements;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 1.1;
 				DEVELOPMENT_ASSET_PATHS = "\"ChangeMyMAC/Preview Content\"";
+				DEVELOPMENT_TEAM = 7YF68K8RV5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_LSUIElement = YES;
@@ -302,7 +286,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.natisfaction.ChangeMyMAC;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

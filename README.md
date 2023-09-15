@@ -1,84 +1,42 @@
 # Change My MAC
 
-Change My MAC is a Python application that allows you to change the MAC address of a network interface on macOS and Linux based systems, in few and really easy steps.
-
-## Credits
-
-This software uses the [spoof-mac](https://github.com/feross/spoofmac) package for the macOS version, developed by [feross](https://github.com/feross). Original spoof-mac code can be found in his linked GitHub repository.
+## macOS
+This readme refers to the macOS program. Change branch to see other supported OSes
 
 ## Requirements
-
 - Know how to find all the informations needed such as the interface name (of course)
-- Python 3.x
-- tkinter Python module (usually included by default with Python)
-
-- **[spoof-mac](https://github.com/feross/spoofmac)** (for macOS)
-- **ifconfig** (Linux only, should be preinstalled in non minimal installations)
-- **powershell** command line (for Windows only)
-
-- **sudo** access for macOS and Linux, or **administrator** access for Windows
+- **sudo** access (password)
+- macOS Ventura or higher
 
 ## Installation
-
-### MacOS only
-
-Install spoof-mac via Homebrew (macOS only):
-   ```shell
-   brew install spoof-mac
-   ```
-
-### Linux only
-
-Install ifconfig if not installed (Linux only):
-   ```shell
-   sudo apt install net-tools
-   ```
-
-### Windows only
-Install the psutil module (Windows only)
-   ```shell
-   pip install psutil
-   ```
-
-### General steps
-
-Install tkinter if not installed:
-   ```shell
-   pip3 install tkinter
-   ```
-
-Install netifaces:
-   ```shell
-   pip3 install netifaces
-   ```
-
-Clone the repository:
-   ```shell
-   git clone https://github.com/LeoArs06/change-my-mac.git
-   ```
-
-Navigate to the project directory:
-   ```shell
-   cd src
-   ```
-
-Launch the ChangeMyMac.py file (with administrator or sudo access):
-   ```shell
-   python3 -u main.py
-   ```
+Grab the binary from the releases section, and download the .app file.
 
 ## Usage
+After executing the program, ChangeMyMAC will create a tray icon. Click it to access the main menu.
 
-After executing the program, the "Change My MAC" graphical interface will appear.
-Enter the network interface name in the "Network Interface" field, and then you're ready to perform some operations:
+![Interface]
 
-- **generate a random MAC address**, click the "Random MAC Address" button.
-- **change the MAC address** of the network interface to the provided one, click the "Update MAC Address" button.
+From here you just have to select the interface you want to change the MAC, and then type in a VALID MAC address.
+You have two buttons:
+- **Random MAC**, generates a random MAC for you.
+- **Update MAC**, actually changes the MAC address.
+
+## FAQ
+
+#### Why is the program not starting???
+There are many things that can block the program from starting up, the main issue could be the macOS version, which has to be Ventura (13) or higher.
+
+#### Why is the program not changing the MAC Address???
+Some macOS interfaces are protected and cannot be "managed" normally, and thus, you can't change the MAC.
+
+#### How do I quit the program???
+Just click on the wheel on the top right, then click the exit button.
+
+#### I don't have macOS Ventura or higher, how can I use the program???
+You can just grab the Python one, from the main branch!
 
 ## Contributions
-
-This project was developed by me [LeoArs06](https://github.com/LeoArs06) and [Natisfaction](https://github.com/Natisfaction), a cool friend of mine. 
+This program has been "readapted" from our main python program (see the main brach), and [Natisfaction](https://github.com/Natisfaction) reworked the UI in swift.
 
 ## Licence
-
 This repository is maintained under the MIT Licence.
