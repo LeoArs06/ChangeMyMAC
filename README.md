@@ -14,7 +14,7 @@ Grab the binary from the releases section, and download the .app file.
 ## Usage
 After executing the program, ChangeMyMAC will create a tray icon. Click it to access the main menu.
 
-![Interface]
+![Interface]()
 
 From here you just have to select the interface you want to change the MAC, and then type in a VALID MAC address.
 You have two buttons:
