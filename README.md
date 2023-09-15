@@ -1,14 +1,9 @@
 # Change My MAC
 
-Change My MAC is a Python application that allows you to change the MAC address of a network interface on macOS and Linux based systems, in few and really easy steps.
-Go to the **Binaries** to see details about the binaries
-
 ## Credits
+This software uses the [spoof-mac](https://github.com/feross/spoofmac) package (Python only), developed by [feross](https://github.com/feross). Original spoof-mac code can be found in his linked GitHub repository.
 
-This software uses the [spoof-mac](https://github.com/feross/spoofmac) package for the macOS version (Python only), developed by [feross](https://github.com/feross). Original spoof-mac code can be found in his linked GitHub repository.
-
-## Requirements
-
+## Python version requirements
 - Know how to find all the informations needed such as the interface name (of course)
 - Python 3.x
 - tkinter Python module (usually included by default with Python)
@@ -22,14 +17,12 @@ This software uses the [spoof-mac](https://github.com/feross/spoofmac) package f
 ## Installation
 
 ### MacOS only
-
 Install spoof-mac via Homebrew (macOS only):
    ```shell
    brew install spoof-mac
    ```
 
 ### Linux only
-
 Install ifconfig if not installed (Linux only):
    ```shell
    sudo apt install net-tools
@@ -42,7 +35,6 @@ Install the psutil module (Windows only)
    ```
 
 ### General steps
-
 Install tkinter if not installed:
    ```shell
    pip3 install tkinter
@@ -76,19 +68,7 @@ Enter the network interface name in the "Network Interface" field, and then you'
 - **change the MAC address** of the network interface to the provided one, click the "Update MAC Address" button.
 
 ## Binaries
-We decided to develop also the binaries, to make the app more independent.
-
-### Requirements
-Those requirements are valid **ONLY** for the binaries. If your OS cannot run those binaries, you can use the Python version.
--   macOS: Ventura or higher
-
-### Support
-The OSes actually supported are:
--   macOS (Universal)
-
-The OSes planned for the release are:
--   Windows (both ARM64 and x64)
--   Linux (both ARM64 and x64)
+If you don't want to use the Python version, we are developing some binaries. Just change the branch to see more details...
 
 ## Contributions
 This project was developed by me [LeoArs06](https://github.com/LeoArs06) and [Natisfaction](https://github.com/Natisfaction), a cool friend of mine. 
