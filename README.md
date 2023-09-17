@@ -26,13 +26,13 @@ You have two buttons:
 #### Why is the program not starting???
 There are many things that can block the program from starting up, the main issue could be the macOS version, which has to be Ventura (13) or higher.
 
-#### Why is the program not changing the MAC Address???
-Some macOS interfaces are protected and cannot be "managed" normally, and thus, you can't change the MAC.
+#### Why is the program not changing some interface's MAC Address???
+Some macOS interfaces are protected and cannot be "managed" normally, and thus, you can't change their MAC address.
 
 #### How do I quit the program???
 Just click on the wheel on the top right, then click the exit button.
 
-#### I don't have macOS Ventura or higher, how can I use the program???
+#### I don't have macOS Ventura or higher, how can I use the program???
 You can just grab the Python one, from the main branch!
 
 ## Contributions
