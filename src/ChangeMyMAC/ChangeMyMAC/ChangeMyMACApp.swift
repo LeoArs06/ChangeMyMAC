@@ -5,7 +5,7 @@ import ServiceManagement
 @main
 struct ChangeMyMAC: App {
     var body: some Scene {
-        MenuBarExtra("Change My MAC", systemImage: "circle") {
+        MenuBarExtra("Change My MAC", systemImage: "arrow.triangle.2.circlepath") {
             AppMenu()
         }
         .menuBarExtraStyle(.window)
@@ -18,6 +18,8 @@ struct AppMenu: View {
     @State private var mac_add: String = ""
     @State private var sInterface: String = ""
     @State private var About = false
+    
+    @State private var mac: String = "select an interface"
     
     // Network Interfaces
     private var interfaces: [String] {
@@ -32,6 +34,8 @@ struct AppMenu: View {
                     .padding(.bottom)
                     .font(.title)
                     .fontWeight(.bold)
+                
+                    
                 
                 Spacer()
                 
@@ -71,6 +75,9 @@ struct AppMenu: View {
                 } label: {
                     Text(sInterface.isEmpty ? "Network interface" : sInterface)
                 }
+                .onChange(of: sInterface) { interface in
+                    getMAC(interface)
+                }
             }
             .padding(.bottom)
             
@@ -78,9 +85,20 @@ struct AppMenu: View {
                 Text("New MAC Address: ")
                 
                 // MAC Address field
-                TextField("New MAC Address here...", text: $mac_add)
+                TextField("New MAC Address", text: $mac_add)
                     .textFieldStyle(.roundedBorder)
+            }
+            
+            HStack {
+                Text("Interface's MAC Address: ")
+                    .padding(.top)
+                    .foregroundColor(.gray)
+                    .fontWidth(.condensed)
                 
+                Text(mac.isEmpty ? "not found" : mac)
+                    .padding(.top)
+                    .foregroundColor(.gray)
+                    .fontWidth(.condensed)
             }
             
             Divider()
@@ -90,14 +108,17 @@ struct AppMenu: View {
                 Button {
                     randomize()
                 } label: {
-                    Text("Random MAC").frame(maxWidth: .infinity)
+                    Text("Random MAC")
+                        .frame(maxWidth: .infinity)
                 }
                 
                 Button {
                     update_mac()
                 } label: {
-                    Text("Update MAC").frame(maxWidth: .infinity)
-                }.buttonStyle(.borderedProminent)
+                    Text("Update MAC")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(.borderedProminent)
             }
         }
         .padding().sheet(isPresented: $About) {
@@ -130,6 +151,26 @@ struct AppMenu: View {
         }
         
         mac_add = newmac
+    }
+    
+    func getMAC(_ iface: String) {
+        // Process and Pipe
+        let process = Process()
+        let pipe = Pipe()
+        var output: String = ""
+        
+        // Run the commands, and return the second column (the MAC Address)
+        process.standardOutput = pipe
+        process.arguments = ["-c", "ifconfig \(iface) | grep ether | awk '{print $2}'"]
+        process.launchPath = "/bin/bash"
+        process.launch()
+        
+        // Using the Pipe, return the string
+        let data = pipe.fileHandleForReading.readDataToEndOfFile()
+        output = String(data: data, encoding: .utf8)?.trimmingCharacters(in: .newlines) ?? ""
+        process.waitUntilExit()
+        
+        mac = output
     }
     
     func getInterfaces() -> [String] {
@@ -226,6 +267,7 @@ struct AppMenu: View {
                     // If the password is correct, update the MAC address
                     let updateProcess = Process()
                     
+                    // Run the process with sudo, dissociate the connection from airport, and change the MAC Address
                     updateProcess.launchPath = "/usr/bin/sudo"
                     updateProcess.arguments = ["-S", "sh", "-c", "sudo /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -z && ifconfig \(sInterface) ether \(mac_add)"]
                     
@@ -252,6 +294,9 @@ struct AppMenu: View {
                     
                     let _ = success.runModal()
                     
+                    // Refresh the MAC Address
+                    getMAC(sInterface)
+                    
                 } else {
                     
                     // If the passowrd is incorrect, display an error alert
@@ -275,16 +320,29 @@ struct AppMenu: View {
 struct AboutView: View {
     @Binding var isPresented: Bool
     @State private var version: String = "1.1"
+    @State private var years: String = "2023"
     
     var body: some View {
         VStack {
-            Text("About...")
-                .font(.title)
-                .fontWeight(.bold)
-                .padding(.all)
+            HStack {
+                Text("About ChangeMyMAC")
+                    .font(.title)
+                    .fontWeight(.bold)
+                    .padding(.all)
+                
+                Spacer()
+            }
             
-            Text("Copyright (c) 2023 Natisfaction, LeoArs06")
-                .frame(maxWidth: .infinity, alignment: .leading)
+            HStack {
+                
+                Spacer()
+                
+                Text("Copyright (c) \(years) Natisfaction, LeoArs06")
+                    .fontWidth(.condensed)
+                
+                Spacer()
+            }
+            
             
             Text("ChangeMyMAC version \(version)")
                 .padding(.bottom)
@@ -303,7 +361,7 @@ struct AboutView: View {
                 Text(" and ")
                 Link("LeoArs06", destination: URL(string: "https://github.com/LeoArs06")!)
             }.padding(.horizontal)
-            .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(maxWidth: .infinity, alignment: .leading)
             
             Button {
                 isPresented = false
@@ -311,6 +369,7 @@ struct AboutView: View {
                 Text("Close")
             }.buttonStyle(.borderedProminent)
                 .padding(.all)
+            
         }.padding(.all)
     }
 }
