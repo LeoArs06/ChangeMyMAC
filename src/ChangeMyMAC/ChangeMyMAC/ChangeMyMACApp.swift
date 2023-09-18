@@ -19,7 +19,7 @@ struct AppMenu: View {
     @State private var sInterface: String = ""
     @State private var About = false
     
-    @State private var mac: String = "select an interface"
+    @State private var mac: String = ""
     
     // Network Interfaces
     private var interfaces: [String] {
@@ -85,20 +85,8 @@ struct AppMenu: View {
                 Text("New MAC Address: ")
                 
                 // MAC Address field
-                TextField("New MAC Address", text: $mac_add)
+                TextField(sInterface.isEmpty ? "Interface's MAC" : mac, text: $mac_add)
                     .textFieldStyle(.roundedBorder)
-            }
-            
-            HStack {
-                Text("Interface's MAC Address: ")
-                    .padding(.top)
-                    .foregroundColor(.gray)
-                    .fontWidth(.condensed)
-                
-                Text(mac.isEmpty ? "not found" : mac)
-                    .padding(.top)
-                    .foregroundColor(.gray)
-                    .fontWidth(.condensed)
             }
             
             Divider()
@@ -297,6 +285,9 @@ struct AppMenu: View {
                     // Refresh the MAC Address
                     getMAC(sInterface)
                     
+                    // Remove the old one
+                    mac_add = ""
+                    
                 } else {
                     
                     // If the passowrd is incorrect, display an error alert
@@ -319,49 +310,67 @@ struct AppMenu: View {
 
 struct AboutView: View {
     @Binding var isPresented: Bool
-    @State private var version: String = "1.1"
+    
+    @State private var version: String = "2.1"
+    @State private var build: String = "2"
     @State private var years: String = "2023"
     
     var body: some View {
         VStack {
             HStack {
-                Text("About ChangeMyMAC")
+                Text("ChangeMyMAC")
                     .font(.title)
                     .fontWeight(.bold)
-                    .padding(.all)
-                
-                Spacer()
+                    .padding(.bottom)
             }
             
-            HStack {
-                
-                Spacer()
-                
-                Text("Copyright (c) \(years) Natisfaction, LeoArs06")
-                    .fontWidth(.condensed)
-                
-                Spacer()
-            }
-            
-            
-            Text("ChangeMyMAC version \(version)")
-                .padding(.bottom)
+            Text("Copyright (c) \(years) Natisfaction, LeoArs06")
                 .padding(.horizontal)
-                .padding(.top)
                 .frame(maxWidth: .infinity, alignment: .leading)
             
-            Text("Developed by")
+            Text("Info")
                 .font(.body)
                 .fontWeight(.bold)
                 .frame(maxWidth: .infinity, alignment: .leading)
+                .padding(.all)
+            
+            Text("ChangeMyMAC version \(version), build \(build)")
+                .padding(.bottom)
                 .padding(.horizontal)
+                .frame(maxWidth: .infinity, alignment: .leading)
             
             HStack {
-                Link("Natisfaction", destination: URL(string: "https://github.com/Natisfaction")!)
-                Text(" and ")
-                Link("LeoArs06", destination: URL(string: "https://github.com/LeoArs06")!)
-            }.padding(.horizontal)
-                .frame(maxWidth: .infinity, alignment: .leading)
+                VStack {
+                    Text("Developed by")
+                        .font(.body)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                    
+                    Link("Natisfaction", destination: URL(string: "https://github.com/Natisfaction")!)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                    
+                    Link("LeoArs06", destination: URL(string: "https://github.com/LeoArs06")!)
+                        .padding(.bottom)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                    
+                    Text("UI Designed by")
+                        .font(.body)
+                        .fontWeight(.bold)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                    
+                    Link("Natisfaction", destination: URL(string: "https://github.com/Natisfaction")!)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                }
+
+                Image("App")
+                
+                Spacer()
+            }
             
             Button {
                 isPresented = false
@@ -371,5 +380,6 @@ struct AboutView: View {
                 .padding(.all)
             
         }.padding(.all)
+            .frame(width: 350, height: 400)
     }
 }
