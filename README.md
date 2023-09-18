@@ -3,6 +3,10 @@
 ## macOS
 This readme refers to the macOS program. Change branch to see other supported OSes
 
+## Disclaimer
+As you can imagine, changing the MAC Address of interfaces can be used to "bypass" some device restrictions into a network, or some other stuffs like that.
+That being said, this program was designed and solely meant for EDUCATIONAL PURPOSES. WE DO NOT ENCOURAGE TO USE THE PROGRAM FOR MALICIOUS PURPOSES, AND WE ARE NOT GOING TO BE RESPONSIBLE FOR ANY OF YOUR ACTIONS. Use your brain!!!
+
 ## Requirements
 - Know how to find all the informations needed such as the interface name (of course)
 - **sudo** access (password)
