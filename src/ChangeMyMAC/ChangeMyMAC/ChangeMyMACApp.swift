@@ -35,8 +35,6 @@ struct AppMenu: View {
                     .font(.title)
                     .fontWeight(.bold)
                 
-                    
-                
                 Spacer()
                 
                 Menu {
@@ -197,6 +195,22 @@ struct AppMenu: View {
     }
     
     func update_mac() {
+        // Check if the interface has a MAC Address
+        if mac.isEmpty {
+            let alert = NSAlert()
+            
+            alert.messageText = "No MAC Address"
+            alert.informativeText = "The interface you provided does not have a MAC Address and thus, you can't change it"
+            alert.addButton(withTitle: "OK")
+            
+            if let iconImage = NSImage(named: "Error") {
+                alert.icon = iconImage
+            }
+            
+            let _ = alert.runModal()
+            return
+        }
+        
         // Check if the MAC address is valid and the interface is selected, if not display an error
         if sInterface.isEmpty || !isMACvalid() {
             let alert = NSAlert()
@@ -309,6 +323,7 @@ struct AppMenu: View {
 }
 
 struct AboutView: View {
+    // Cannot be private
     @Binding var isPresented: Bool
     
     @State private var version: String = "2.1"
@@ -322,6 +337,7 @@ struct AboutView: View {
                     .font(.title)
                     .fontWeight(.bold)
                     .padding(.bottom)
+                    .padding(.top)
             }
             
             Text("Copyright (c) \(years) Natisfaction, LeoArs06")
@@ -372,12 +388,24 @@ struct AboutView: View {
                 Spacer()
             }
             
-            Button {
-                isPresented = false
-            } label: {
-                Text("Close")
-            }.buttonStyle(.borderedProminent)
-                .padding(.all)
+            HStack {
+                Button {
+                    //
+                } label: {
+                    Link("GitHub", destination: URL(string: "https://github.com/LeoArs06/ChangeMyMAC/tree/macOS")!)
+                        .frame(maxWidth: .infinity)
+                }.padding(.horizontal)
+
+                Divider()
+
+                Button {
+                    isPresented = false
+                } label: {
+                    Text("Close")
+                        .frame(maxWidth: .infinity)
+                }.padding(.horizontal)
+                
+            }.padding(.top)
             
         }.padding(.all)
             .frame(width: 350, height: 400)
