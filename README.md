@@ -8,8 +8,6 @@ As you can imagine, changing the MAC Address of interfaces is something usefull 
 
 For those particular reasons, we must proclaim that this program was designed and solely meant for EDUCATIONAL PURPOSES. WE DO NOT ENCOURAGE THE PROGRAM USAGE FOR MALICIOUS PURPOSES, AND WE ARE NOT GOING TO BE RESPONSIBLE FOR ANY OF YOUR ACTIONS.
 
-IF YOU'RE NOT 100% SURE IF WHATEVER YOU'RE DOING IS LEGAL, JUST DO NOT DO THAT!
-
 ## Requirements
 - Know how to find all the informations needed such as the interface name (of course)
 - **sudo** access (root password)
