@@ -1,0 +1,16 @@
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\ChangeMyMac.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\ChangeMyMac.AssemblyInfoInputs.cache
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\ChangeMyMac.AssemblyInfo.cs
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\ChangeMyMac.csproj.CoreCompileInputs.cache
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\bin\Debug\net6.0-windows\ChangeMyMac.exe
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\bin\Debug\net6.0-windows\ChangeMyMac.deps.json
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\bin\Debug\net6.0-windows\ChangeMyMac.runtimeconfig.json
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\bin\Debug\net6.0-windows\ChangeMyMac.dll
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\bin\Debug\net6.0-windows\ChangeMyMac.pdb
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\ChangeMyMac.Form1.resources
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\ChangeMyMac.csproj.GenerateResource.cache
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\ChangeMyMac.dll
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\refint\ChangeMyMac.dll
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\ChangeMyMac.pdb
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\ChangeMyMac.genruntimeconfig.cache
+C:\Users\leoar\source\repos\ChangeMyMac\ChangeMyMac\obj\Debug\net6.0-windows\ref\ChangeMyMac.dll
