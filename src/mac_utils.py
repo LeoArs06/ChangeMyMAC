@@ -17,21 +17,23 @@ def change_mac_address(interface, mac_address):
         messagebox.showerror("Error", "Interface not found in dictionary")
         return
     
-    result = subprocess.run(["sudo", "spoof-mac", "set", mac_address, interface], capture_output=True, text=True)
+    # Dissociating Airport should not give ANY kind of error
+    subprocess.run(["sudo", "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport", "-z"], capture_output=True, text=True)
+
+    result = subprocess.run(["sudo", "ifconfig", interface, "ether", mac_address], capture_output=True, text=True)
     output = result.stdout
 
-    if "error" in output.lower():
+    if "SIOCAIFADDR" in output.upper():
         messagebox.showerror("Error", "Can't update current MAC Address")
-        return 1
-    else:
-        messagebox.showinfo("Success", "MAC Address updated succesfully")
+        
+    messagebox.showinfo("Success", "MAC Address updated succesfully")
     
     return 0
 
 
 def generate_mac_address():
     random_mac = [random.randint(0x00, 0xff) for _ in range(6)]
-    #Primo byte deve essere pari (no multicast)
+    # First byte odd (no multicast)
     random_mac[0] = random_mac[0] - (random_mac[0] % 2)
 
     random_mac_address = ":".join([f"{x:02x}" for x in random_mac])

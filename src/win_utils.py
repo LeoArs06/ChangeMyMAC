@@ -28,7 +28,7 @@ def change_mac_address(interface, mac_address):
 
 def generate_mac_address():
     random_mac = [random.randint(0x00, 0xff) for _ in range(6)]
-    #Primo byte deve essere pari (no multicast)
+    # First byte odd (no multicast)
     random_mac[0] = random_mac[0] - (random_mac[0] % 2)
 
     random_mac_address = ":".join([f"{x:02x}" for x in random_mac])
