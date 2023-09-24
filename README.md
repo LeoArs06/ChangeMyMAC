@@ -1,37 +1,29 @@
 # Change My MAC
 
-## Credits
-This software uses the [spoof-mac](https://github.com/feross/spoofmac) package (Python only), developed by [feross](https://github.com/feross). Original spoof-mac code can be found in his linked GitHub repository.
-
 ## Python version requirements
 - Know how to find all the informations needed such as the interface name (of course)
 - Python 3.x
-- tkinter Python module (usually included by default with Python)
+- Tkinter Python module (usually included by default with Python)
 
-- **[spoof-mac](https://github.com/feross/spoofmac)** (for macOS)
 - **ifconfig** (Linux only, should be preinstalled in non minimal installations)
 - **powershell** command line (for Windows only)
-
 - **sudo** access for macOS and Linux, or **administrator** access for Windows
 
-## Installation
+## Prerequisites
 
 ### MacOS only
-Install spoof-mac via Homebrew (macOS only):
-   ```shell
-   brew install spoof-mac
-   ```
+No individual steps required! Jump to the General ones!
 
 ### Linux only
-Install ifconfig if not installed (Linux only):
+Install ifconfig if not installed:
    ```shell
    sudo apt install net-tools
    ```
 
 ### Windows only
-Install the psutil module (Windows only)
+Install the psutil module:
    ```shell
-   pip install psutil
+   pip3 install psutil
    ```
 
 ### General steps
@@ -40,14 +32,14 @@ Install tkinter if not installed:
    pip3 install tkinter
    ```
 
-Install netifaces:
+Install netifaces module:
    ```shell
    pip3 install netifaces
    ```
 
-Clone the repository:
+Clone this repository:
    ```shell
-   git clone https://github.com/LeoArs06/change-my-mac.git
+   git clone https://github.com/LeoArs06/ChangeMyMAC.git
    ```
 
 Navigate to the project directory:
@@ -57,15 +49,15 @@ Navigate to the project directory:
 
 Launch the ChangeMyMac.py file (with administrator or sudo access):
    ```shell
-   python3 -u main.py
+   sudo python3 -u main.py
    ```
 
 ## Usage
 After executing the program, the "Change My MAC" graphical interface will appear.
-Enter the network interface name in the "Network Interface" field, and then you're ready to perform some operations:
+Select the network interface from the "Network Interface" dropdown menu, and then you're ready to perform some operations:
 
-- **generate a random MAC address**, click the "Random MAC Address" button.
-- **change the MAC address** of the network interface to the provided one, click the "Update MAC Address" button.
+- **generating a random MAC address**, click the "Random MAC Address" button.
+- **changing the MAC address** of the network interface to the provided one, click the "Update MAC Address" button.
 
 ## Binaries
 If you don't want to use the Python version, we are developing some binaries. Just change the branch to see more details...
