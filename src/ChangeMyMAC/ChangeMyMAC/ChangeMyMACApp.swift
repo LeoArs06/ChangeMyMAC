@@ -1,6 +1,5 @@
 import SwiftUI
 import Foundation
-import ServiceManagement
 
 @main
 struct ChangeMyMAC: App {
@@ -9,7 +8,9 @@ struct ChangeMyMAC: App {
             AppMenu()
         }
         .menuBarExtraStyle(.window)
-        WindowGroup {}
+        WindowGroup {
+            //
+        }
     }
 }
 
@@ -107,7 +108,8 @@ struct AppMenu: View {
                 .buttonStyle(.borderedProminent)
             }
         }
-        .padding().sheet(isPresented: $About) {
+        .padding(.all)
+        .sheet(isPresented: $About) {
             AboutView(isPresented: $About)
         }
     }
@@ -326,8 +328,8 @@ struct AboutView: View {
     // Cannot be private
     @Binding var isPresented: Bool
     
-    @State private var version: String = "2.1"
-    @State private var build: String = "2"
+    @State private var version: String = "2.2"
+    @State private var build: String = "1"
     @State private var years: String = "2023"
     
     var body: some View {
