@@ -11,6 +11,7 @@ namespace ChangeMyMac
         public Form1()
         {
             InitializeComponent();
+            InitializeUI();
         }
 
         private string[] GetNetworkInterfaces()
