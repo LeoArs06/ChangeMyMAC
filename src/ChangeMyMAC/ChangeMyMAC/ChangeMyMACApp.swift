@@ -396,6 +396,7 @@ struct AboutView: View {
                 } label: {
                     Link("GitHub", destination: URL(string: "https://github.com/LeoArs06/ChangeMyMAC/tree/macOS")!)
                         .frame(maxWidth: .infinity)
+                        .buttonStyle(.borderless)
                 }.padding(.horizontal)
 
                 Divider()
@@ -405,6 +406,7 @@ struct AboutView: View {
                 } label: {
                     Text("Close")
                         .frame(maxWidth: .infinity)
+                        .buttonStyle(.borderless)
                 }.padding(.horizontal)
                 
             }.padding(.top)
